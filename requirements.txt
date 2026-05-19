@@ -1,0 +1,47 @@
+# ============================================================
+#  requirements.txt
+#  System dependencies for FacialRec
+# ============================================================
+
+# ── C++ toolchain ─────────────────────────────────────────────────────────────
+# C++17-compatible compiler:
+#   macOS:  Xcode Command Line Tools  (xcode-select --install)
+#   Linux:  GCC ≥ 9  or  Clang ≥ 10
+#           sudo apt install build-essential
+
+# ── Build system ──────────────────────────────────────────────────────────────
+# CMake ≥ 3.16
+#   macOS:  brew install cmake
+#   Linux:  sudo apt install cmake
+
+# ── OpenCV ≥ 4.5 (with contrib modules for opencv_face / LBPH) ───────────────
+#   macOS:
+#     brew install opencv
+#
+#   Ubuntu / Debian:
+#     sudo apt install libopencv-dev
+#
+#   From source (required if your distro ships OpenCV without contrib):
+#     git clone https://github.com/opencv/opencv.git
+#     git clone https://github.com/opencv/opencv_contrib.git
+#     cd opencv && mkdir build && cd build
+#     cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+#           -DBUILD_opencv_face=ON ..
+#     make -j$(nproc)
+#     sudo make install
+
+# ── Haar cascade XML files ────────────────────────────────────────────────────
+# These ship with OpenCV — no extra download needed.
+# Verify they exist at CASCADE_DIR (see include/config.hpp):
+#   haarcascade_frontalface_default.xml
+#   haarcascade_eye.xml
+#   haarcascade_lefteye_2splits.xml
+#   haarcascade_righteye_2splits.xml
+#   haarcascade_smile.xml
+#
+# To find them on your machine:
+#   find /opt/homebrew /usr -name "haarcascade_frontalface_default.xml" 2>/dev/null
+
+# ── Webcam ────────────────────────────────────────────────────────────────────
+# Any webcam accessible as /dev/video0 (Linux) or camera index 0 (macOS/Win).
+# Built-in laptop cameras work out of the box.
