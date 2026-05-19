@@ -1,0 +1,16 @@
+# Build artifacts
+build/
+*.o
+*.a
+facialrec
+
+# Trained model (large binary — commit intentionally if you want to ship one)
+model.xml
+
+# macOS
+.DS_Store
+
+# VSCode / CLion
+.vscode/
+.idea/
+cmake-build-*/
